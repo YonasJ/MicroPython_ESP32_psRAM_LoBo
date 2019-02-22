@@ -482,7 +482,7 @@ void TFT_drawFastHLine(int16_t x, int16_t y, int16_t w, color_t color) {
 	_drawFastHLine(x+dispWin.x1, y+dispWin.y1, w, color);
 }
 
-// Bresenham's algorithm, speed enhanced by Bodmer this uses
+// Bresenham's algorithm - thx wikipedia - speed enhanced by Bodmer this uses
 // the efficient FastH/V Line draw routine for segments of 2 pixels or more
 //----------------------------------------------------------------------------------
 static void _drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, color_t color)
@@ -2557,7 +2557,7 @@ static UINT tjd_input (
 	// Device identifier for the session (5th argument of jd_prepare function)
 	JPGIODEV *dev = (JPGIODEV*)jd->device;
 
-	if (buff) {	// Read nd bytes from the input strem
+	if (buff) {	// Read nd bytes from the input stream
 		rb = fread(buff, 1, nd, dev->fhndl);
 		return rb;	// Returns actual number of bytes read
 	}
@@ -2582,7 +2582,7 @@ static UINT tjd_buf_input (
 
 	if ((dev->bufptr + nd) > (dev->bufsize + 2)) nd = (dev->bufsize + 2) - dev->bufptr;
 
-	if (buff) {	// Read nd bytes from the input strem
+	if (buff) {	// Read nd bytes from the input stream
 		memcpy(buff, dev->membuff + dev->bufptr, nd);
 		dev->bufptr += nd;
 		return nd;	// Returns number of bytes read
